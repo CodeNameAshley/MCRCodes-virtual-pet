@@ -1,21 +1,17 @@
-function Pet(name) {
-  this.name = name;
-  this.age = 0;
+class Pet {
+  constructor(name) {
+    this.name = name;
+    this.age = 0;
+    this.hunger = 0;
+  }
+  growUP() {
+    this.age += 1;
+  }
+  hunger() {}
 }
 
-Pet.prototype.growUP = function () {
-  this.age += 1;
-};
-
-const pet = {
-  name: "Fido",
-  age: 0,
-};
-
-const rex = {
-  name: "Rex",
-  age: 0,
-};
+const fido = new Pet("Fido");
+const red = new Pet("Rex");
 
 rex.growUp = function () {
   this.age += 5;
