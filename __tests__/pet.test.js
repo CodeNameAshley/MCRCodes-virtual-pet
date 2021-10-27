@@ -23,8 +23,24 @@ describe("growUP", () => {
     const pet = new Pet("Fido");
     const rex = new Pet("Rex");
 
-    pet.growUP();
+    pet.growUp();
 
     expect(pet.age).toEqual(1);
+  });
+
+  it("it increases the hunger by 5", () => {
+    const pet = new Pet("Fido");
+
+    pet.growUp();
+
+    expect(pet.hunger).toEqual(5);
+  });
+
+  it("it decreases the fitness by 3 :(", () => {
+    const pet = new Pet("Fido");
+
+    pet.growUp();
+
+    expect(pet.fitness).toEqual(7);
   });
 });

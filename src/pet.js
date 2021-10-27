@@ -3,15 +3,19 @@ class Pet {
     this.name = name;
     this.age = 0;
     this.hunger = 0;
+    this.fitness = 10;
   }
-  growUP() {
+  growUp() {
     this.age += 1;
+    this.hunger += 5;
+    this.fitness -= 3;
   }
-  hunger() {}
 }
 
 const fido = new Pet("Fido");
-const red = new Pet("Rex");
+const rex = new Pet("Rex");
+
+fido.growUp();
 
 rex.growUp = function () {
   this.age += 5;
