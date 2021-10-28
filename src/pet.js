@@ -28,6 +28,20 @@ class Pet {
       this.hunger = 0;
     }
   }
+  checkUp() {
+    const bored = this.fitness <= 3;
+    const hungry = this.hunger >= 5;
+
+    if (bored && hungry) {
+      return "I am hungry and I need a walk";
+    } else if (bored) {
+      return "I need a walk";
+    } else if (hungry) {
+      return "I am hungry";
+    } else if (!bored && !hungry) {
+      return "I feel great!";
+    }
+  }
 }
 
 const fido = new Pet("Fido");

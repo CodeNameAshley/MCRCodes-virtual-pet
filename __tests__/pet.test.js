@@ -83,3 +83,45 @@ describe("feed", () => {
     expect(pet.hunger).toEqual(0);
   });
 });
+
+describe("checkUp", () => {
+  it("checks if pet needs a walk, threshold is 3 and below", () => {
+    const pet = new Pet("fido");
+
+    pet.fitness = 4;
+    pet.growUp();
+    pet.feed();
+
+    expect(pet.checkUp()).toEqual("I need a walk");
+  });
+
+  it("checks if pet needs food, threshold is 5 and above", () => {
+    const pet = new Pet("fido");
+
+    pet.hunger = 5;
+    pet.growUp();
+
+    expect(pet.checkUp()).toEqual("I am hungry");
+  });
+
+  it("checks if pet is needs a walk and needs food - both threshold must be met", () => {
+    const pet = new Pet("fido");
+
+    pet.fitness = 4;
+    pet.hunger = 10;
+    pet.growUp();
+
+    expect(pet.checkUp()).toEqual("I am hungry and I need a walk");
+  });
+
+  it("checks if fitness and hunger is above both", () => {
+    const pet = new Pet("Fido");
+
+    pet.fitness = 10;
+    pet.hunger = 0;
+    pet.growUp();
+    pet.feed();
+
+    expect(pet.checkUp()).toEqual("I feel great!");
+  });
+});
