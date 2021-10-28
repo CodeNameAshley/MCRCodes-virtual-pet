@@ -6,7 +6,7 @@ class Pet {
   constructor(name) {
     this.name = name;
     this.age = lowestAge;
-    this.hunger = lowestHunger;
+    this.hunger = 0;
     this.fitness = maxFitness;
   }
   growUp() {
@@ -19,6 +19,13 @@ class Pet {
       this.fitness += 4;
     } else {
       this.fitness = 10;
+    }
+  }
+  feed() {
+    if (this.hunger - 3 >= lowestHunger) {
+      this.hunger -= 3;
+    } else {
+      this.hunger = 0;
     }
   }
 }
