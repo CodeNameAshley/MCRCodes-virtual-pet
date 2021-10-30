@@ -1,11 +1,14 @@
 const maxFitness = 10;
-const lowestAge = 0;
-const lowestHunger = 0;
+const minAge = 0;
+const minHunger = 0;
+const deathAge = 30;
+const deathHunger = 10;
+const minFitness = 0;
 
 class Pet {
   constructor(name) {
     this.name = name;
-    this.age = lowestAge;
+    this.age = minAge;
     this.hunger = 0;
     this.fitness = maxFitness;
   }
@@ -22,7 +25,7 @@ class Pet {
     }
   }
   feed() {
-    if (this.hunger - 3 >= lowestHunger) {
+    if (this.hunger - 3 >= minHunger) {
       this.hunger -= 3;
     } else {
       this.hunger = 0;
@@ -42,15 +45,17 @@ class Pet {
       return "I feel great!";
     }
   }
+  get isAlive() {
+    if (
+      this.age >= deathAge ||
+      this.hunger >= deathHunger ||
+      this.fitness <= minFitness
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
-
-const fido = new Pet("Fido");
-const rex = new Pet("Rex");
-
-fido.growUp();
-
-rex.growUp = function () {
-  this.age += 5;
-};
 
 module.exports = Pet;

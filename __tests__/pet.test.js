@@ -125,3 +125,39 @@ describe("checkUp", () => {
     expect(pet.checkUp()).toEqual("I feel great!");
   });
 });
+
+describe("isAlive", () => {
+  it("checks if the pet is still alive based on fitness threshold", () => {
+    const pet = new Pet("fido");
+
+    pet.fitness = 0;
+
+    expect(pet.isAlive).toBe(false);
+  });
+
+  it("checks if the pet is still alive based on hunger threshold", () => {
+    const pet = new Pet("fido");
+
+    pet.hunger = 11;
+
+    expect(pet.isAlive).toBe(false);
+  });
+
+  it("checks if the pet is still alive based on the pets age", () => {
+    const pet = new Pet("fido");
+
+    pet.age = 31;
+
+    expect(pet.isAlive).toBe(false);
+  });
+
+  it("checks if all threshold are not met - is pet still alive?", () => {
+    const pet = new Pet("fido");
+
+    pet.age = 5;
+    pet.hunger = 2;
+    pet.fitness = 5;
+
+    expect(pet.isAlive).toBe(true);
+  });
+});
