@@ -7,6 +7,12 @@ const maxAge = 30;
 const minHunger = 0;
 const maxHunger = 10;
 
+const birthday = 1;
+const nomNoms = 5;
+const heProtecc = 3;
+const walked = 4;
+const fed = 3;
+
 const errorMessage = "Your pet is no longer alive 😢";
 
 class Pet {
@@ -17,10 +23,6 @@ class Pet {
     this.fitness = maxFitness;
   }
   growUp() {
-    const birthday = 1;
-    const nomNoms = 5;
-    const heProtecc = 3;
-
     if (!this.isAlive) {
       throw new Error(errorMessage);
     }
@@ -29,19 +31,15 @@ class Pet {
     this.fitness -= heProtecc;
   }
   walkies() {
-    const walked = 4;
-
     if (!this.isAlive) {
       throw new Error(errorMessage);
     } else if (this.fitness + walked <= maxFitness) {
-      this.fitness += 4;
+      this.fitness += walked;
     } else {
       this.fitness = maxFitness;
     }
   }
   feed() {
-    const fed = 3;
-
     if (!this.isAlive) {
       throw new Error(errorMessage);
     } else if (this.hunger - fed >= minHunger) {
@@ -51,8 +49,8 @@ class Pet {
     }
   }
   checkUp() {
-    const bored = this.fitness <= 3;
-    const hungry = this.hunger >= 5;
+    const bored = this.fitness <= heProtecc;
+    const hungry = this.hunger >= nomNoms;
     const sadgePet = bored && hungry;
 
     if (!this.isAlive) {
