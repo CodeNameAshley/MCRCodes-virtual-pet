@@ -6,7 +6,7 @@ This is my code for Manchester Codes virtual-pet project
 
 This project is based on the concept of Tamagotchi. A pet is created using a class function, Pet class contains a name constructor, which include instances of age, fitness, and hunger. It contains a few methods such as - growUp which adds values to the above instances. It also includes methods to feed and walk the pet which will decrease the values of its respective instances. Last method is the checkUp method which returns the current values of the instances above. There is also an isAlive property which checks whether the pet is still alive dependant on threshold of all instances.
 
-In this project - 
+*In this project - 
 
 	*You can give them a name
 	*They can get older
