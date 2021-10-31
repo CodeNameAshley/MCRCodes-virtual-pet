@@ -58,13 +58,13 @@ class Pet {
     if (!this.isAlive) {
       throw new Error(errorMessage);
     } else if (sadgePet) {
-      return "I am hungry and I need a walk";
+      return "I am hungry 🍲 and I need a walk 🐕‍🦺";
     } else if (bored) {
-      return "I need a walk";
+      return "I need a walk 🐕‍🦺";
     } else if (hungry) {
-      return "I am hungry";
+      return "I am hungry 🍲";
     } else if (!sadgePet) {
-      return "I feel great!";
+      return "I feel great! 😸";
     }
   }
   get isAlive() {
