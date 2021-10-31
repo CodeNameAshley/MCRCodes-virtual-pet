@@ -1,4 +1,5 @@
 const Pet = require("../src/pet");
+const BabyPet = require("../src/pet");
 
 describe("constructor", () => {
   it("returns an object", () => {
@@ -171,7 +172,7 @@ describe("isAlive", () => {
     expect(pet.isAlive).toBe(false);
   });
 
-  it("checks if all threshold are not met - is pet still alive?", () => {
+  it("checks if the pet is still alive if all thresholds are not met", () => {
     const pet = new Pet("fido");
 
     pet.age = 5;
@@ -180,4 +181,26 @@ describe("isAlive", () => {
 
     expect(pet.isAlive).toBe(true);
   });
+});
+
+describe("super", () => {
+  it("returns an object for child class", () => {
+    expect(new BabyPet("Dido")).toBeInstanceOf(Object);
+  });
+
+  // ** The test below is not needed because the instances
+  // are inherited from the parents class
+  // which already passed the tests above! **
+
+  // it("sets the name property", () => {
+  //   const babypet = new BabyPet("Dido");
+
+  //   expect(babypet.name).toEqual("Dido");
+  // });
+
+  // it("has an initial age of 0", () => {
+  //   const babypet = new BabyPet("Dido");
+
+  //   expect(babypet.age).toEqual(0);
+  // });
 });

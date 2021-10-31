@@ -80,4 +80,11 @@ class Pet {
   }
 }
 
-module.exports = Pet;
+class BabyPet extends Pet {
+  constructor(name) {
+    super(age, hunger, fitness);
+    this.name = name;
+  }
+}
+
+(module.exports = Pet), BabyPet;
