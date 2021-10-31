@@ -1,5 +1,5 @@
-const Pet = require("../src/pet");
-const BabyPet = require("../src/pet");
+import Pet from "../src/pet";
+import BabyPet from "../src/pet";
 
 describe("constructor", () => {
   it("returns an object", () => {
