@@ -43,6 +43,16 @@ describe("growUP", () => {
 
     expect(pet.fitness).toEqual(7);
   });
+
+  it("throws an error if the pet is no longer alive", () => {
+    const pet = new Pet("Fido");
+
+    pet.fitness = -5;
+    pet.hunger = 15;
+    pet.age = 35;
+
+    expect(() => pet.growUp()).toThrow("Your pet is no longer alive 😢");
+  });
 });
 
 describe("walk", () => {
@@ -61,6 +71,14 @@ describe("walk", () => {
     pet.walkies();
 
     expect(pet.fitness).toEqual(10);
+  });
+
+  it("throws an error if the pet is no longer alive", () => {
+    const pet = new Pet("Fido");
+
+    pet.fitness = 0;
+
+    expect(() => pet.walkies()).toThrow("Your pet is no longer alive 😢");
   });
 });
 
@@ -82,15 +100,21 @@ describe("feed", () => {
 
     expect(pet.hunger).toEqual(0);
   });
+
+  it("throws an error if the pet is not alive", () => {
+    const pet = new Pet("Fido");
+
+    pet.age = 30;
+
+    expect(() => pet.feed()).toThrow("Your pet is no longer alive 😢");
+  });
 });
 
 describe("checkUp", () => {
   it("checks if pet needs a walk, threshold is 3 and below", () => {
     const pet = new Pet("fido");
 
-    pet.fitness = 4;
-    pet.growUp();
-    pet.feed();
+    pet.fitness = 2;
 
     expect(pet.checkUp()).toEqual("I need a walk");
   });
@@ -98,8 +122,7 @@ describe("checkUp", () => {
   it("checks if pet needs food, threshold is 5 and above", () => {
     const pet = new Pet("fido");
 
-    pet.hunger = 5;
-    pet.growUp();
+    pet.hunger = 7;
 
     expect(pet.checkUp()).toEqual("I am hungry");
   });
@@ -107,20 +130,17 @@ describe("checkUp", () => {
   it("checks if pet is needs a walk and needs food - both threshold must be met", () => {
     const pet = new Pet("fido");
 
-    pet.fitness = 4;
-    pet.hunger = 10;
-    pet.growUp();
+    pet.fitness = 2;
+    pet.hunger = 7;
 
     expect(pet.checkUp()).toEqual("I am hungry and I need a walk");
   });
 
-  it("checks if fitness and hunger is above both", () => {
+  it("checks if fitness and hunger is above both threshold", () => {
     const pet = new Pet("Fido");
 
-    pet.fitness = 10;
-    pet.hunger = 0;
-    pet.growUp();
-    pet.feed();
+    pet.fitness = 9;
+    pet.hunger = 1;
 
     expect(pet.checkUp()).toEqual("I feel great!");
   });
