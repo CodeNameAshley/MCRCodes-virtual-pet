@@ -176,7 +176,7 @@ describe("checkUp", () => {
     expect(babypet.checkUp()).toEqual("I am hungry 🍲");
   });
 
-  it("checks if pet is needs a walk and needs food - both threshold must be met", () => {
+  it("checks if pet needs a walk and food based on both thresholds", () => {
     const pet = new Pet("Fido");
     const babypet = new BabyPet("Dido");
 
@@ -202,6 +202,17 @@ describe("checkUp", () => {
 
     expect(pet.checkUp()).toEqual("I feel great! 😸");
     expect(pet.checkUp()).toEqual("I feel great! 😸");
+  });
+
+  it("throws an error if the pet is not alive", () => {
+    const pet = new Pet("Fido");
+    const babypet = new BabyPet("Dido");
+
+    pet.fitness = 0;
+    babypet.age = 31;
+
+    expect(() => pet.checkUp()).toThrow("Your pet is no longer alive 😢");
+    expect(() => babypet.checkUp()).toThrow("Your pet is no longer alive 😢");
   });
 });
 
