@@ -90,20 +90,28 @@ describe("walk", () => {
   });
 
   it("increases fitness by to a maximum of 10", () => {
-    const pet = new Pet("fido");
+    const pet = new Pet("Fido");
+    const babypet = new BabyPet("Dido");
 
     pet.fitness = 8;
     pet.walkies();
 
+    babypet.fitness = 9;
+    babypet.walkies();
+
     expect(pet.fitness).toEqual(10);
+    expect(babypet.fitness).toEqual(10);
   });
 
   it("throws an error if the pet is no longer alive", () => {
     const pet = new Pet("Fido");
+    const babypet = new BabyPet("Dido");
 
     pet.fitness = 0;
+    babypet.fitness = 0;
 
     expect(() => pet.walkies()).toThrow("Your pet is no longer alive 😢");
+    expect(() => babypet.walkies()).toThrow("Your pet is no longer alive 😢");
   });
 });
 
