@@ -175,7 +175,7 @@ describe("isAlive", () => {
     const pet = new Pet("fido");
 
     pet.age = 5;
-    pet.hunger = 2;
+    pet.hunger = 3;
     pet.fitness = 5;
 
     expect(pet.isAlive).toBe(true);

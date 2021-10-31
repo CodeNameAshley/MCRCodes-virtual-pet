@@ -17,44 +17,53 @@ class Pet {
     this.fitness = maxFitness;
   }
   growUp() {
+    const birthday = 1;
+    const nomNoms = 5;
+    const heProtecc = 3;
+
     if (!this.isAlive) {
       throw new Error(errorMessage);
     }
-    this.age += 1;
-    this.hunger += 5;
-    this.fitness -= 3;
+    this.age += birthday;
+    this.hunger += nomNoms;
+    this.fitness -= heProtecc;
   }
   walkies() {
+    const walked = 4;
+
     if (!this.isAlive) {
       throw new Error(errorMessage);
-    } else if (this.fitness + 4 <= maxFitness) {
+    } else if (this.fitness + walked <= maxFitness) {
       this.fitness += 4;
     } else {
-      this.fitness = 10;
+      this.fitness = maxFitness;
     }
   }
   feed() {
+    const fed = 3;
+
     if (!this.isAlive) {
       throw new Error(errorMessage);
-    } else if (this.hunger - 3 >= minHunger) {
-      this.hunger -= 3;
+    } else if (this.hunger - fed >= minHunger) {
+      this.hunger -= fed;
     } else {
-      this.hunger = 0;
+      this.hunger = minHunger;
     }
   }
   checkUp() {
     const bored = this.fitness <= 3;
     const hungry = this.hunger >= 5;
+    const sadgePet = bored && hungry;
 
     if (!this.isAlive) {
       throw new Error(errorMessage);
-    } else if (bored && hungry) {
+    } else if (sadgePet) {
       return "I am hungry and I need a walk";
     } else if (bored) {
       return "I need a walk";
     } else if (hungry) {
       return "I am hungry";
-    } else if (!bored && !hungry) {
+    } else if (!sadgePet) {
       return "I feel great!";
     }
   }
