@@ -104,7 +104,7 @@ describe("feed", () => {
   it("throws an error if the pet is not alive", () => {
     const pet = new Pet("Fido");
 
-    pet.age = 30;
+    pet.hunger = 15;
 
     expect(() => pet.feed()).toThrow("Your pet is no longer alive 😢");
   });

@@ -7,6 +7,8 @@ const maxAge = 30;
 const minHunger = 0;
 const maxHunger = 10;
 
+const errorMessage = "Your pet is no longer alive 😢";
+
 class Pet {
   constructor(name) {
     this.name = name;
@@ -16,7 +18,7 @@ class Pet {
   }
   growUp() {
     if (!this.isAlive) {
-      throw new Error("Your pet is no longer alive 😢");
+      throw new Error(errorMessage);
     }
     this.age += 1;
     this.hunger += 5;
@@ -24,7 +26,7 @@ class Pet {
   }
   walkies() {
     if (!this.isAlive) {
-      throw new Error("Your pet is no longer alive 😢");
+      throw new Error(errorMessage);
     } else if (this.fitness + 4 <= maxFitness) {
       this.fitness += 4;
     } else {
@@ -33,7 +35,7 @@ class Pet {
   }
   feed() {
     if (!this.isAlive) {
-      throw new Error("Your pet is no longer alive 😢");
+      throw new Error(errorMessage);
     } else if (this.hunger - 3 >= minHunger) {
       this.hunger -= 3;
     } else {
@@ -45,7 +47,7 @@ class Pet {
     const hungry = this.hunger >= 5;
 
     if (!this.isAlive) {
-      throw new Error("Your pet is no longer alive 😢");
+      throw new Error(errorMessage);
     } else if (bored && hungry) {
       return "I am hungry and I need a walk";
     } else if (bored) {
