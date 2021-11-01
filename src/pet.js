@@ -23,7 +23,7 @@ class Pet {
     this.age = minAge;
     this.hunger = minHunger;
     this.fitness = maxFitness;
-    this.childName = children; // If player wants pet to have a child (empty at start)
+    this.child = children; // If player wants pet to have a child (empty at start)
   }
   growUp() {
     if (!this.isAlive) {
@@ -52,8 +52,8 @@ class Pet {
     }
   }
   checkUp() {
-    const bored = this.fitness <= heProtecc;
-    const hungry = this.hunger >= nomNoms;
+    const bored = this.fitness <= heProtecc; // less than or equal to 3
+    const hungry = this.hunger >= nomNoms; // more than or equal to 5
     const sadgePet = bored && hungry;
 
     if (!this.isAlive) {
@@ -84,7 +84,7 @@ class Pet {
   }
 }
 
-//other way to have a child
+// other way to have a child
 class BabyPet extends Pet {
   constructor(name) {
     super();
