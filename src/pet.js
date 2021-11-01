@@ -15,7 +15,7 @@ const fed = 3; // decreases hunger by 3 when feed() is invokes
 
 const errorMessage = "Your pet is no longer alive 😢";
 
-const children = []; // Adopted childNa array - childNa added through adoptChild()
+const children = []; // adptChild method pushes to this array. This is an array of Pet Class children
 
 class Pet {
   constructor(name) {

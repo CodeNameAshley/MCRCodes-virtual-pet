@@ -1,6 +1,8 @@
 const Pet = require("../src/pet");
 const BabyPet = require("../src/pet");
 
+// This includes tests for 1. Pet Class 2. Child Class 3. Adopted Child Method
+
 describe("constructor", () => {
   it("returns an object", () => {
     expect(new Pet("Fido")).toBeInstanceOf(Object);
