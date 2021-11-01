@@ -7,13 +7,15 @@ const maxAge = 30;
 const minHunger = 0;
 const maxHunger = 10;
 
-const birthday = 1;
-const nomNoms = 5;
-const heProtecc = 3;
-const walked = 4;
-const fed = 3;
+const birthday = 1; // adds 1 year to age
+const nomNoms = 5; // adds 5 levels of hunger when pet grows up
+const heProtecc = 3; // decreases fitness by 3 when pet grows up
+const walked = 4; // increases fitness by 4 when walkies() is invoked
+const fed = 3; // decreases hunger by 3 when feed() is invokes
 
 const errorMessage = "Your pet is no longer alive 😢";
+
+const children = []; // Adopted childNa array - childNa added through adoptChild()
 
 class Pet {
   constructor(name) {
@@ -21,6 +23,7 @@ class Pet {
     this.age = minAge;
     this.hunger = minHunger;
     this.fitness = maxFitness;
+    this.childName = children; // If player wants pet to have a child (empty at start)
   }
   growUp() {
     if (!this.isAlive) {
@@ -76,11 +79,15 @@ class Pet {
       return true;
     }
   }
+  adoptChild(childName) {
+    return children.push(childName);
+  }
 }
 
+//other way to have a child
 class BabyPet extends Pet {
   constructor(name) {
-    super(age, hunger, fitness);
+    super();
     this.name = name;
   }
 }
