@@ -79,6 +79,13 @@ class Pet {
       return true;
     }
   }
+  haveaBaby(childName) {
+    return children.push(childName);
+
+    // if (childName !== Object) {
+    //   return "The child needs to be an object data type!";
+    // } else if (childName === Object) {
+  }
   adoptChild(childName) {
     return children.push(childName);
   }
@@ -87,7 +94,7 @@ class Pet {
 // other way to have a child
 class BabyPet extends Pet {
   constructor(name) {
-    super();
+    super(name);
     this.name = name;
   }
 }

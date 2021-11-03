@@ -336,8 +336,6 @@ describe("isAlive", () => {
     babypet.fitness = -5;
     pet.child[0].fitness = -5;
 
-    console.log(pet.child[0]);
-
     expect(pet.isAlive).toBe(false);
     expect(babypet.isAlive).toBe(false);
     expect(pet.child[0].isAlive).toBe(false);
@@ -396,7 +394,6 @@ describe("isAlive", () => {
 });
 
 describe("adoptChild", () => {
-  const children = [];
   const parent = new Pet("Fido");
   const child = new Pet("Dido");
 
@@ -407,8 +404,24 @@ describe("adoptChild", () => {
   expect(parent.adoptChild(child2)).toEqual(2);
 });
 
-describe("super", () => {
-  it("returns an object for child class", () => {
-    expect(new BabyPet("Dido")).toBeInstanceOf(Object);
-  });
+describe("haveaBaby", () => {
+  const parent = new Pet("Fido");
+  const baby = new Pet("Vido");
+
+  parent.haveaBaby(baby);
+
+  console.log(parent.child);
+
+  expect(parent.haveaBaby(baby)).toEqual();
 });
+
+// describe("super", () => {
+//   const pet = new Pet("Fido");
+//   const babypet = new BabyPet();
+
+//   pet.name;
+
+//   it("returns the Parent Class property if constructor isnt filled in", () => {
+//     expect(babypet.name).toBeInstanceOf("Fido");
+//   });
+// });
